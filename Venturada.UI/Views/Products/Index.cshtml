@@ -1,0 +1,340 @@
+﻿@model Venturada.UI.ViewModels.ProductsPageViewMainModel
+@{
+    ViewBag.Title = "Products";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Products
+                <small>What We offer?</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Products</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            @if (Model.ProductsMainModel.ImageURLString.Length > 0)
+            {
+                <img src="@Model.ProductsMainModel.ImageURLString" class="img-responsive">
+            }
+            else
+            {
+                <img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/QXD6Y5RRI2.jpg" class="img-responsive">
+            }
+            
+        </div>
+    </div>
+</div>
+    
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (Model.ProductsMainModel.ProductsMainId > 0)
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 class="page-header">@Model.ProductsMainModel.ProductMainParagraphTitle</h2>
+                            <p>@(new HtmlString(Model.ProductsMainModel.ProductMainParagraph))</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="page-header">@Model.ProductsMainModel.ProductSubParagraphTitle</h2>
+                            <p>@(new HtmlString(Model.ProductsMainModel.ProductSubParagraph)) </p>
+
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2 class="page-header">Our Premium Products</h2>
+                            <p>Our meats are of very high quality and strictly followed standards for meat processing religously. We can guarantee fresh meat that have rich, vibrant and eye catching in color. </p>
+                            <p>We have very good butchers that cares about the quality of our meat. Cuts of the same variety should be about the same size and thickness</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="page-header">Something More</h2>
+                            <p>FOR LOCAL BEEF AVAILABLE UPON REQUEST </p>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+ </div>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Products</h2>
+                @if (Model.ProductsListModel.Count > 0)
+                {
+
+
+                    <ul class="nav nav-tabs" id="myTab">
+                        @for (int i = 0; i < Model.ProductsListModel.Count; i++)
+                        {
+                            switch (i)
+                            {
+                                case 0:
+                        <li class="active">
+                            <a data-toggle="tab" href="#service-one"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                                case 1:
+                        <li>
+                            <a data-toggle="tab" href="#service-two"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                                case 2:
+                        <li>
+                            <a data-toggle="tab" href="#service-three"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                                case 3:
+                        <li>
+                            <a data-toggle="tab" href="#service-four"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                                case 4:
+                        <li>
+                            <a data-toggle="tab" href="#service-five"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                                case 5:
+                        <li>
+                            <a data-toggle="tab" href="#service-six"><strong>@Model.ProductsListModel[i].MainDescription</strong></a>
+                        </li>
+                                    break;
+                            }
+                        }
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        @for (int i = 0; i < Model.ProductsListModel.Count; i++)
+                        {
+
+                            switch (i)
+                            {
+                                case 0:
+                        <div id="service-one" class="tab-pane fade in active">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                                case 1:
+                        <div id="service-two" class="tab-pane fade">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                                case 2:
+                        <div id="service-three" class="tab-pane fade">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                                case 3:
+                        <div id="service-four" class="tab-pane fade">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                                case 4:
+                        <div id="service-five" class="tab-pane fade">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                                case 5:
+                        <div id="service-six" class="tab-pane fade">
+                            <div class="col-lg-12">
+                                <p>@(new HtmlString(@Model.ProductsListModel[i].DetailsDescription))</p>
+                            </div>
+                        </div>
+                                    break;
+                            }
+
+                        }
+                    </div>
+
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2 class="page-header">Products List</h2>
+                            <ul class="nav nav-tabs" id="myTab">
+                                <li class="active">
+                                    <a data-toggle="tab" href="#service-one"><strong>Pork</strong></a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#service-two"><strong>Local Beef</strong></a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#service-three"><strong>Imported meat (1 Box per case) Whole Price</strong></a>
+                                </li>
+                                <li>
+                                    <a data-toggle="tab" href="#service-four"><strong>Other Products</strong></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div id="service-one" class="tab-pane fade in active">
+                                    <div class="col-lg-12">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                •	Warm Meat Description (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Carcass Warm (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Chilled Carcass (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Entrails (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Pigue (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Kasim (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Porkchop (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Pork Belly (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Ordinary Ribs(with Pigtail-Sinigang Cut) (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Premium Grill Ribs (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Special cut ribs (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Tenderloin/Lomo (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Bone for Soup stock (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Pata Front (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Special Pata Cut (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Head (Fresh)
+                                            </li>
+                                            <li>
+                                                •	Maskara (Fresh)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="service-two" class="tab-pane fade">
+                                    <div class="col-lg-12">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                •	Sirloin.Larga .Top round
+                                            </li>
+                                            <li>
+                                                •	Kimchi.Round Steak
+                                            </li>
+                                            <li>
+                                                •   Bulalo
+
+                                            </li>
+                                            <li>
+                                                •	Camto with /Without Ribs
+                                            </li>
+                                            <li>
+                                                •   Bias .Fats
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="service-three" class="tab-pane fade">
+                                    <div class="col-lg-12">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                •	Chicken Leg Quarter
+                                            </li>
+                                            <li>
+                                                •	Chicken Thigh Fillet, Skin On
+                                            </li>
+                                            <li>
+                                                •   Pork Belly (minimum 100kg)
+
+                                            </li>
+                                            <li>
+                                                •	Pork Jowls. Eardrum
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="service-four" class="tab-pane fade">
+                                    <div class="col-lg-12">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                •
+                                            </li>
+                                            <li>
+                                                •
+                                            </li>
+                                            <li>
+                                                •
+
+                                            </li>
+                                            <li>
+                                                •
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="modal-content">
+        <br />
+        <div class="container-fluid">
+            <ul class="list-group">
+                <li class="list-unstyled">
+                    @Html.ActionLink("Price List", "Index", "Price")
+                </li>
+                <li class="list-unstyled">
+                    @Html.ActionLink("Downloadable Form", "Index", "Forms")
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

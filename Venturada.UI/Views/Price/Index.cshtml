@@ -1,0 +1,61 @@
+﻿@model List<Venturada.UI.Models.ProductCategoryModel>
+
+@{
+    ViewBag.Title = "Price List";
+    
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Price List
+                <small>FREE DELIVERY 20KG MINIMUM</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Price List</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-12">
+                    <h2 class="page-header">@item.ProductCategory</h2>
+                </div>
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Product Description</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            @if (item.PriceListModel.Count > 0)
+                            {
+                                foreach (var item3 in item.PriceListModel)
+                                {
+                                    <tr>
+                                        <td>@item3.ProductName</td>
+                                        <td>@item3.ProductDescription</td>
+                                        <td>@item3.Price</td>
+                                    </tr>
+                                }
+                            }
+                                    
+                    </tbody>
+                </table>
+            }
+
+        </div>
+
+    </div>
+</div>

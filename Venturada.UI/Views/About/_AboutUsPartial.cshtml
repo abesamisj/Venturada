@@ -1,0 +1,31 @@
+﻿@model Venturada.UI.Models.AboutUsModel
+@if (Model.AboutUsId > 0)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImageUrl" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.AboutUsTitle</h2>
+            <p>@(new HtmlString(Model.AboutUsParagraph))</p>
+            
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/OGU0CPHVVD.jpg" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <h2>Our Slaughter and About Us</h2>
+            <p>The Farm is excellent in providing a high quality of service. Our Slaughter House partner is the Paranaque Meat Processing and Slaughterhouse. Granted by the <a href="http://www.nmis.gov.ph/">National meat inspection service</a>  is a “Double AA” and has the credibility and passed the standard and facilities for slaughtering various animals.</p>
+            <p>If you’d like to talk with one of our friendly butchers, give us a call at (02) 899-1407. We will be glad to discuss our proposal with regards to your cutting requirement or chilling process.</p>
+
+            <br />
+            <br />
+
+        </div>
+    </div>
+}

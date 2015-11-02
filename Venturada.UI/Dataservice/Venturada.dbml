@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="venturadahogs" Class="VenturadaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ABESAMIJ3\MSSQLSERVER2014;Initial Catalog=venturadahogs;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DefaultConnection" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AboutUs" Member="AboutUs">
+    <Type Name="AboutUs">
+      <Column Name="AboutUsId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageUrl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="AboutUsTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AboutUsParagraph" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Partners" Member="Partners">
+    <Type Name="Partner">
+      <Column Name="PartnerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageUrl" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductsMain" Member="ProductsMains">
+    <Type Name="ProductsMain">
+      <Column Name="ProductsMainId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImageURLString" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ProductMainParagraph" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductSubParagraph" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="ProductMainParagraphTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ProductSubParagraphTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductsList" Member="ProductsLists">
+    <Type Name="ProductsList">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MainDescriptionTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MainDescription" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="DetailsDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductCategory" Member="ProductCategories">
+    <Type Name="ProductCategory">
+      <Column Name="ProductCategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductCategory" Member="ProductCategory1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductHeader" Member="ProductHeaders">
+    <Type Name="ProductHeader">
+      <Column Name="ProductLabelId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductCategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductTableTitleDescription" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceList" Member="PriceLists">
+    <Type Name="PriceList">
+      <Column Name="PriceListId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductCategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Price" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Services" Member="Services">
+    <Type Name="Service">
+      <Column Name="ServicesId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ServiceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceSubTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ServiceDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImageString" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Promo" Member="Promos">
+    <Type Name="Promo">
+      <Column Name="PromoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PromoTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PromoDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ImageString" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gallery" Member="Galleries">
+    <Type Name="Gallery">
+      <Column Name="GalleryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GalleryTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GalleryDescription" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Row" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ImageString" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

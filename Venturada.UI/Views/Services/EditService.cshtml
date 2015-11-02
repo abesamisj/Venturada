@@ -1,0 +1,114 @@
+﻿@model Venturada.UI.Models.ServicesModel
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- TinyMCE Script Reference -->
+    <script src="~/scripts/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        // Initialize your tinyMCE Editor with your preferred options
+        tinyMCE.init({
+            // General options
+            mode: "textareas",
+            theme: "modern",
+            // Theme options
+            plugins: [
+        "advlist autolink lists link"
+            ],
+            theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+            theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            theme_advanced_toolbar_location: "top",
+            theme_advanced_toolbar_align: "left",
+            theme_advanced_statusbar_location: "bottom",
+            theme_advanced_resizing: true,
+
+            // Example content CSS (should be your site CSS)
+            content_css: "css/example.css",
+        });
+
+        jQuery.validator.setDefaults({
+            highlight: function (element, errorClass, validClass) {
+                if (element.type === 'radio') {
+                    this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+                } else {
+                    $(element).addClass(errorClass).removeClass(validClass);
+                    $(element).closest('.form-group').removeClass('success').addClass('error');
+                }
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                if (element.type === 'radio') {
+                    this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+                } else {
+                    $(element).removeClass(errorClass).addClass(validClass);
+                    $(element).closest('.form-group').removeClass('error').addClass('success');
+                }
+            }
+        });
+    </script>
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Edit Service
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Edit Service</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                
+                @using (Html.BeginForm("EditService", "Services", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group col-lg-12">
+                        @Html.LabelFor(model => model.ImageString, new { @class = "required" })
+                        <p class="thumbnail">
+                            Current image. : <img src=@Url.Action("GetPhotoThumbnail", new { imageString = Model.ImageString }) class="img-responsive img-thumbnail">
+                        </p>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <input type="file" name="services_image" class="form-control" accept="image/png,image/jpg,image/jpeg" value="@Model.ImageString" />
+                    </div>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group col-lg-12">
+                        @Html.LabelFor(model => model.ServiceName, new { @class = "required" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.ServiceName, new { maxlength = 100, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ServiceName, null, new { @class = "help-inline", style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        @Html.LabelFor(model => model.ServiceSubTitle, new { @class = "required" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.ServiceSubTitle, new { maxlength = 100, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ServiceSubTitle, null, new { @class = "help-inline", style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        @Html.LabelFor(model => model.ServiceDescription, new { @class = "required" })
+                        <div class="controls">
+                            @Html.TextAreaFor(model => model.ServiceDescription, new { maxlength = 1000, @rows = 10, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ServiceDescription, null, new { @class = "help-inline", style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" value="@Model.ServicesId" name="edit_ServicesId">
+                        <input type="hidden" value="@Model.ImageString" name="edit_ImageString">
+                        <input type="hidden" value="@Model.ServiceName" name="edit_ServiceName">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

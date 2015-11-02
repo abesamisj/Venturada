@@ -1,0 +1,162 @@
+﻿@model List<Venturada.UI.ViewModels.FeatureMainModel>
+
+@if (Model.Count > 0)
+{
+
+    <div class="section-colored">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src=@Model[0].FeatureImageURLString class="img-responsive img-customer">
+                    <h3>
+                        About Us
+                    </h3>
+                    <p>
+                        @(new HtmlString(Model[0].FeatureDescription))
+                    </p>
+                    <br/>
+                        <a class="btn btn-sm btn-primary pull-right" href="@Url.Action("Index", "About")">
+                            Find out more!
+                        </a>
+                </div>
+
+                <div class="col-lg-4">
+                    <img src=@Model[1].FeatureImageURLString class="img-responsive img-customer">
+                    <h3>
+                        Products
+                    </h3>
+                    <p>
+                        @(new HtmlString(Model[1].FeatureDescription))
+                    </p>
+                    <br/>
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Products")">
+                            Find out more!
+                        </a>
+                </div>
+                <div class="col-lg-4">
+                    <img src=@Model[2].FeatureImageURLString class="img-responsive img-customer">
+                    <h3>
+                        Services
+                    </h3>
+                    <p>
+                        @(new HtmlString(Model[2].FeatureDescription))
+                    </p>
+                    <br/>
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Services")">
+                            Find out more!
+                        </a>
+                </div>
+
+            </div>
+            @*<div class="row">
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right" href="@Url.Action("Index", "About")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Products")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Services")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="section-colored">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/97630E7A29.jpg" width="370" height="250">
+                    <h3>
+                        About Us
+                    </h3>
+                    <p>
+                        The Farm is excellent in providing a high quality of service. Our Slaughter House partner is the Paranaque Meat Processing and Slaughterhouse.
+                    </p>
+
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/FA1FA383C1.jpg" width="370" height="250">
+                    <h3>
+                        Our Products
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            •	Pork
+                        </li>
+                        <li>
+                            •	Local Beef
+                        </li>
+                        <li>
+                            •	Imported Meat
+                        </li>
+                    </ul>
+
+
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/42DO9KK67Z.jpg" width="370" height="250">
+                    <h3>
+                        Our Services
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li>
+                            •	Cutting Requirement
+                        </li>
+                        <li>
+                            •	Processing
+                        </li>
+                        <li>
+                            •	Delivery
+                        </li>
+                        <li>
+                            •	Wholesale
+                        </li>
+                        <li>
+                            •	Price List
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right" href="@Url.Action("Index", "About")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Products")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="buttonLink">
+                        <a class="btn btn-sm btn-primary pull-right " href="@Url.Action("Index", "Services")">
+                            Find out more!
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

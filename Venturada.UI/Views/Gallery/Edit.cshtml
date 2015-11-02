@@ -1,0 +1,825 @@
+﻿@model Venturada.UI.ViewModels.GalleryViewModel
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Gallery
+                <small>See our gallery!</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Gallery</li>
+            </ol>
+        </div>
+    </div>
+    @if (Session.Count > 0)
+    {
+        if (Model.GalleryModelRow1.Count > 0)
+        {
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div class="alert-info active">@Html.ActionLink("Add Gallery", "Add", "Gallery")</div>
+                    </div>
+                </div>
+            </div>
+         <!-- Row1 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow1)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+
+                }
+            </div>
+
+    <!-- Row2 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow2)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row3 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow3)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row4 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow4)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row5 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow5)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row6 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow6)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row7 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow7)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row8 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow8)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row9 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow9)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row10 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow10)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row11 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow11)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row12 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow12)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+    <!-- Row13 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow13)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row14 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow14)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row15 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow15)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row16 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow16)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row17 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow17)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row18 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow18)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row19 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow19)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row20 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow20)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row21 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow21)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row22 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow22)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row23 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow23)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row24 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow24)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row25 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow25)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row26 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow26)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row27 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow27)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row28 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow28)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row29 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow29)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+    <!-- Row30 -->
+            <div class="row">
+                @foreach (var item in Model.GalleryModelRow30)
+                {
+                    <div class="col-md-4 portfolio-item">
+                        <a href="#">
+                            @if (item.ImageString.Trim().Length > 0)
+                            {
+                                <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString }) class="img-responsive img-thumbnail">
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                            }
+
+                        </a>
+                        <h3>@item.GalleryTitle</h3>
+                        <p>@item.GalleryDescription</p>
+                        <p class="thumbnail">
+                            @Html.ActionLink("Edit Item", "EditGallery", "Gallery", new { galleryId = @item.GalleryId }, null) |
+                            @Html.ActionLink("Delete Item", "DeleteGallery", "Gallery", new { galleryId = @item.GalleryId }, null)
+                        </p>
+                    </div>
+                }
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div class="alert-info active">@Html.ActionLink("Add Gallery", "Add", "Gallery")</div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div class="alert-info active">@Html.ActionLink("Add Gallery", "Add", "Gallery")</div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+            @Html.Partial("_NoAccess")
+    }
+    
+
+
+
+</div>
+

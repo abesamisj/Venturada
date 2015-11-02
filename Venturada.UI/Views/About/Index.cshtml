@@ -1,0 +1,50 @@
+﻿@model Venturada.UI.ViewModels.AboutUsViewModel
+@{
+    ViewBag.Title = "About";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                About Us
+                <small>It's Nice to Meet You!</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>About us</li>
+            </ol>
+        </div>
+    </div>
+    
+    @Html.Partial("_AboutUsPartial", Model.AboutUsModel)
+    
+    @if (Model.PartnersModel != null)
+    {
+        @Html.Partial("_PartnersPartial", Model.PartnersModel)
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Our Partners</h2>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img src="~/Contents/Images/CustomersLogo/pilmico.png" class="img-responsive">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img src="~/Contents/Images/CustomersLogo/farmmeat.png" class="img-responsive">
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <img src="~/Contents/Images/CustomersLogo/farmmeatexpress.png" class="img-responsive">
+            </div>
+            <hr />
+        </div>
+    }
+    
+    
+
+</div>

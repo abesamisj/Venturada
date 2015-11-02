@@ -1,0 +1,49 @@
+﻿/*!
+ * Social Buttons for Twitter Bootstrap v1.0.0
+ *
+ * Copyright 2013 Adam Neumann
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+
+
+	
+.circle{
+	border-radius: 50%;
+	margin: 0.15em;
+	font-size: 3em;
+	}
+	
+.fa-twitter{
+	background: #4099FF;
+	color: #FFFFFF;
+  padding: 0.05em 0.07em;
+	}
+
+.fa-google-plus{
+  color: #FFFFFF;
+  background: #dd4b39;
+  padding: 0.1em 0.1em;
+  }  
+
+.fa-dribbble{
+	color: #ea4c89;
+	}
+
+.fa-pinterest{
+	color: #cb2027;
+	}
+
+.fa-facebook{
+	background: #3b5998;
+	color: #FFFFFF;
+  padding: 0.05em 0.3em;
+	}
+
+.fa-youtube{
+	background: #bb0000;
+	color: #FFFFFF;
+  padding: 0.25em 0.25em;
+  
+	}
+

@@ -1,0 +1,33 @@
+﻿@model List<Venturada.UI.ViewModels.FeatureMainModel>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            @if (Session.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-sm-4">
+
+                        Image: <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.FeatureImageURLString}) class="img-responsive img-thumbnail">
+                        <br /><label for="input1">Description:</label>
+                        <br />@(new HtmlString(item.FeatureDescription))
+                        <input type="hidden" name="home_carouselId" value="@item.FeatureId" />
+                        <br />@Html.ActionLink("Edit Feature", "EditFeature", "Home", new { featureId = @item.FeatureId }, null)
+
+                    </div>
+                }
+            }
+            else
+            {
+                @Html.Partial("_NoAccess")
+            }
+   
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,18 @@
+﻿.boxSizing {
+     width: 100%;
+    height: 100%;
+    border: 1px solid blue;
+    box-sizing: border-box;
+   max-width:50%; /* or whatever width you want. */
+   max-height:50%;
+   display: inline-block;
+
+}
+
+#innerbox
+{
+   width:250px; /* or whatever width you want. */
+   max-width:250px; /* or whatever width you want. */
+   display: inline-block;
+}
+

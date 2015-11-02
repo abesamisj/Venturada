@@ -1,0 +1,40 @@
+﻿@model Venturada.UI.ViewModels.MainViewModel
+
+@if (Model.MainId > 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>
+                    @Model.MainTitle <small>@Model.MainSubTitle</small>
+                </h1>
+                <p>
+                    @(new HtmlString(Model.MainParagraph))
+                   
+                </p>
+                <hr />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>
+                    Venturada Hogs and Foods Corp <small>Meat Processing and Slaughterhouse.</small>
+                </h1>
+                <p style="text-align:justify">
+                    We are one of the top leading pork meat distribution companies, engaged in supplying of competitive price of both and local chilled/frozen quality pork meat.
+                    Our company is exclusive distributor of PILMICO ANIMAL NUTRITION CORPORATION (Owned by ABOITIZ Group).
+                </p>
+                <p style="text-align:justify">
+                    To secure the quality and freshness of our meat, we are exclusive partner of PILMICO ANIMAL NUTRITION CORPORATION (owned by ABOITIZ Group).
+                    <a href="http://www.pilmico.com/">Pilmico</a> is excellent in providing high quality animal nutrition feeds, supporting services and swine production. it also provides counsel on animal nutrition and management and superior piglets to farmers to grow market.
+                </p>
+                <hr />
+            </div>
+        </div>
+    </div>
+}

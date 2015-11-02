@@ -1,0 +1,61 @@
+﻿@model List<Venturada.UI.Models.PartnersModel>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                @if (Session.Count > 0)
+                {
+                    if (Model.Count > 0)
+                    {
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                @if (Model.Count >= 6)
+                                {
+                                    <div class="alert-info active">Maximum number of images reach</div>
+                                }
+                                else
+                                {
+                                    <div class="alert-info active">@Html.ActionLink("Add Partners Images", "Add", "About")</div>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+
+                                <div class="col-md-2 col-sm-4 col-xs-6">
+                                    <p class="thumbnail">
+                                        Current Image : <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageUrl }) class="img-responsive img-thumbnail">
+                                        <input type="hidden" name="home_carouselId" value="@item.PartnerId" />
+                                        <br />@Html.ActionLink("Delete Image", // text of the link
+                                                            "DeleteImages", // controller name
+                                                            "About", // action name
+                                                            new { partnerId = @item.PartnerId }, null// route values (if not part of the route will be sent as query string)
+                                                            )
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <div class="alert-info active">@Html.ActionLink("Add Partners Images", "Add", "About")</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @Html.Partial("_NoAccess")
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

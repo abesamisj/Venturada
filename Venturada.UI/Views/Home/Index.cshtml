@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+@model Venturada.UI.ViewModels.HomeViewModels
+
+@Html.Partial("_CarouselsPartialPage", Model.CarouselsViewModels)
+
+@Html.Partial("_HomeMainPartial", Model.MainViewModels)
+
+@Html.Partial("_FeatureMainPartial", Model.FeatureMainModel)
+
+    <!-- /.section -->
+    <!-- /.container -->

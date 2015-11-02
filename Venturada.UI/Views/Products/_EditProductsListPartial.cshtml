@@ -1,0 +1,62 @@
+﻿@model List<Venturada.UI.Models.ProductsListModel>
+
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (Session.Count > 0)
+                {
+                    if (Model.Count > 0)
+                    {
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                @if (Model.Count >= 6)
+                                {
+                                    <div class="alert-info active">Maximum number of products category reach</div>
+                                }
+                                else
+                                {
+                                    <div class="alert-info active">@Html.ActionLink("Add Product Category", "Add", "Products")</div>
+                                }
+                            </div>
+                        </div>
+    <div class="section">
+        <div class="row">
+            <h2 class="page-header">Products</h2>
+             @for (int i = 0; i < Model.Count; i++)
+             {
+                <div class="col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <h4>@Model[i].MainDescription</h4>  @Html.ActionLink("Edit", "EditProduct", "Products", new { productId = @Model[i].ProductsId }, null) | @Html.ActionLink("Delete", "DeleteProducts", "Products", new { productId = @Model[i].ProductsId }, null)
+                        <p>
+                            @(new HtmlString(Model[i].DetailsDescription))
+                        </p>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+
+                    }
+                    else
+                    {
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <div class="alert-info active">@Html.ActionLink("Add Product Category", "Add", "Products")</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @Html.Partial("_NoAccess")
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model Venturada.UI.ViewModels.ServicesViewModel
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Services
+                <small>What We Do?</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Services</li>
+            </ol>
+        </div>
+    </div>
+</div>
+@if (Session.Count > 0)
+{
+    <div class="container">
+        <div class="section">
+            <div class="row">
+
+                @foreach (var item in Model.ServicesModelRow1)
+                {
+                    <div class="col-md-4 portfolio-item thumbnail">
+                        <div class="form-group">
+                            Image: <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString}) class="img-responsive img-thumbnail col-lg-6">
+                            <br />
+                            <strong>Service Name</strong> :@item.ServiceName
+                            <br />
+                            <strong>Service Sub Title</strong> : @item.ServiceSubTitle
+                            <br />
+                            <strong>Service Description</strong> : @(new HtmlString(item.ServiceDescription))
+                            <input type="hidden" name="home_ServicesId" value="@item.ServicesId" />
+                            <br />@Html.ActionLink("Edit", "EditService", "Services", new { id = @item.ServicesId }, null)
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row">
+
+                @foreach (var item in Model.ServicesModelRow2)
+                {
+                    <div class="col-md-4 portfolio-item thumbnail">
+                        <div class="form-group">
+                            Image: <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.ImageString}) class="img-responsive img-thumbnail col-lg-6">
+                            <br />
+                            <strong>Service Name</strong> :@item.ServiceName
+                            <br />
+                            <strong>Service Sub Title</strong> : @item.ServiceSubTitle
+                            <br />
+                            <strong>Service Description</strong> : @(new HtmlString(item.ServiceDescription))
+                            <input type="hidden" name="home_ServicesId" value="@item.ServicesId" />
+                            <br />@Html.ActionLink("Edit", "EditService", "Services", new { id = @item.ServicesId }, null)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                @Html.Partial("_NoAccess")
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,98 @@
+﻿@model List<Venturada.UI.Models.ProductCategoryModel>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            @if (Session.Count > 0)
+            {
+                 <div class="container-fluid">
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <div class="alert-info active">@Html.ActionLink("Add Product Category", "Add", "Price")</div>
+                            </div>
+                        </div>
+                    </div>
+                    foreach (var item in Model)
+                    {
+                        <div class="form-group col-lg-12 ">
+                            <h2 class="page-header">@item.ProductCategory</h2> 
+                            <i class="fa fa-save"></i><abbr title="Edit">E</abbr>@Html.ActionLink("dit Category", "EditCategory", "Price", new { productCategoryId = @item.ProductCategoryId }, null)  
+                            <i class="fa fa-bullseye"></i><abbr title="Delete">D</abbr>@Html.ActionLink("elete Category", "DeleteCategory", "Price", new { productCategoryId = @item.ProductCategoryId }, null)
+                            <input type="hidden" name="productCategoryId" value="@item.ProductCategoryId" />
+                        </div>
+
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (item.PriceListModel != null)
+            {
+                if (item.PriceListModel.Count > 0)
+                {
+                    <tr>
+                        <td>
+                            <i class="fa fa-plus"></i>
+                            <abbr title="Add">A</abbr>@Html.ActionLink("dd Products", "AddPrice", "Price", new { productCategoryId = @item.ProductCategoryId }, null)
+                        </td>
+                    </tr>
+                    foreach (var item3 in item.PriceListModel)
+                    {
+                        <tr>
+                                <td>
+                                    @item3.ProductName
+                                </td>
+                                <td>
+                                    @item3.ProductDescription
+                                </td>
+                                <td>
+                                    @item3.Price
+                                </td>
+                            <td>
+                                <abbr title="Edit">E</abbr>@Html.ActionLink("dit Product", "EditPrice", "Price", new { priceListId = @item3.PriceListId }, null)
+                                | <abbr title="Delete">D</abbr>@Html.ActionLink("elete Product", "DeletePrice", "Price", new { priceListId = @item3.PriceListId }, null)
+                            </td>
+                        </tr>
+                    }
+
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <i class="fa fa-plus"></i>
+                            <abbr title="Add">A</abbr>@Html.ActionLink("dd Products", "AddPrice", "Price", new { productCategoryId = @item.ProductCategoryId }, null)
+                        </td>
+                    </tr>
+                }
+
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <i class="fa fa-plus"></i>
+                        <abbr title="Add">A</abbr>@Html.ActionLink("dd Products", "AddPrice", "Price", new { productCategoryId = @item.ProductCategoryId }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                    }
+            }
+            else
+            {
+                @Html.Partial("_NoAccess")
+            }
+        </div>
+        
+    </div>
+</div>
+
+
+

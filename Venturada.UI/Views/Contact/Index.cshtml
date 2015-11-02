@@ -1,0 +1,117 @@
+﻿
+@model Venturada.UI.ViewModels.EmailFormModel
+@{
+    ViewBag.Title = "Contact";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Contact <small>We'd Love to Hear From You!</small></h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>Contact</li>
+            </ol>
+        </div>
+        <div class="col-lg-12">
+            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+            <iframe width="100%" scrolling="no" height="400px" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.428601512352!2d121.05122234999999!3d14.631595149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7a263d7d515%3A0x40a53b6559771696!2sTopaz+Building!5e0!3m2!1sen!2snz!4v1444128250775" marginwidth="0" marginheight="0"></iframe>
+        </div>
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Let's Get In Touch!</h3>
+            <form action="@Url.Action("Index", "Contact")" method="POST" role="form" class="form-horizontal">
+                <div class="row">
+                    <div class="form-group col-lg-6 ">
+                        <label for="input1" class="required">Name</label>
+                        <input type="text" id="name" class="form-control" name="contact_name" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="input2">Company</label>
+                        <input type="text" id="input2" class="form-control" name="contact_company">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="input3" class="required">Email Address</label>
+                        <input type="email" id="input3" class="form-control" name="contact_email" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="input4" class="required">Phone Number</label>
+                        <input type="tel" id="input4" class="form-control" name="contact_phone" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="input5" class="required">Subject</label>
+                        <input type="text" id="input5" class="form-control" name="contact_subject" required>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-12">
+                        <label for="input6" class="required">Message</label>
+                        <textarea id="input6" rows="6" class="form-control" name="contact_message" required></textarea>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" value="contact" name="save">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <p style="color:red">* Required Fields</p>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <div class="col-sm-4">
+           
+            <h1>Venturada Hogs and Foods Corp</h1>
+            <p>
+                5th floor Topaz Bldg. <br>
+                Kamias Road, Quezon City<br>
+                Philippines<br />
+            </p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 899-1407 </p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 433-6670</p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0933) 199-7537</p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0925) 563-8495</p>
+            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: ((0939) 929-3696</p>
+            <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:customerservice@venturadahogs.com">customerservice@venturadahogs.com</a></p>
+            <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: Mon-Fri: 6am to 7pm</p>
+            <ul class="list-unstyled list-inline list-social-icons">
+                <li class="tooltip-social facebook-link">
+                    <a title="Facebook" data-placement="top" data-toggle="tooltip" href="https://www.facebook.com/profile.php?id=100010526250517"><i class="fa fa-facebook-square fa-2x"></i></a>
+                </li>
+                <li class="tooltip-social twitter-link">
+                    <a title="Twitter" data-placement="top" data-toggle="tooltip" href="https://twitter.com/venturadahogs1"><i class="fa fa-twitter-square fa-2x"></i></a>
+                </li>
+                <li class="tooltip-social youtube-link">
+                    <a title="youtube" data-placement="top" data-toggle="tooltip" href="#youtubeprofile">
+                        <i class="fa fa-youtube-square fa-2x"></i>
+                    </a>
+                </li>
+                <li class="tooltip-social instagram-link">
+                    <a title="instagram" data-placement="top" data-toggle="tooltip" href="#instagram-profile">
+                        <i class="fa fa-instagram fa-2x"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div><!-- /.row -->
+    <br />
+    <br />
+    <div class="modal-content">
+        <br />
+        <div class="container-fluid">
+            <ul class="list-group">
+                <li class="list-unstyled">
+                    @Html.ActionLink("Price List", "Index", "Price")
+                </li>
+                <li class="list-unstyled">
+                    @Html.ActionLink("Downloadable Form", "Index", "Forms")
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

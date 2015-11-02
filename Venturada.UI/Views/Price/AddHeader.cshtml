@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Price List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add Product Header</h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>Add Header</li>
+            </ol>
+        </div>
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <form action="@Url.Action("AddHeader", "Price")" method="POST" role="form" class="form-horizontal">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group col-sm-12">
+                        <label for="input1" class="required">Table Header</label>
+                        <input type="text" id="name" class="form-control" name="tableHeader" required>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" value="contact" name="save">
+                        <input type="hidden" value="@ViewBag.ProducCategoryId" name="productCategoryId">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

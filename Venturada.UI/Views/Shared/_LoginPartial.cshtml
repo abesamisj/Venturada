@@ -1,0 +1,45 @@
+﻿@if (Session["UserName"] != null)
+{
+    string webPage = ViewBag.Title;
+    
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>@Html.ActionLink("Hello " + " Admin" + "!", "Index", "Home")</li>
+            @switch (webPage)
+            {
+                case "Home":
+                    <li>@Html.ActionLink("Edit " + webPage, "Edit", "Home")</li>
+                    break;
+                case "About":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "About")</li>
+                    break;
+                case "Products":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "Products")</li>
+                    break;
+                case "Price List":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "Price")</li>
+                    break;
+                case "Services":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "Services")</li>
+                    break;
+                case "Promo":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "Promo")</li>
+                    break;
+                case "Gallery":
+                <li>@Html.ActionLink("Edit " + webPage, "Edit", "Gallery")</li>
+                    break;
+            }
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Admin", "Login", "Account")</li>
+    </ul>
+}
+

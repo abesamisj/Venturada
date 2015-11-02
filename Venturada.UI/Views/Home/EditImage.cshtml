@@ -1,0 +1,51 @@
+﻿@model Venturada.UI.ViewModels.CarouselsViewModels
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Image</h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>Edit Image</li>
+            </ol>
+        </div>
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                @if (Session.Count > 0)
+                {
+                    using (Html.BeginForm("EditImage", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="col-sm-12">
+                            <p class="thumbnail">
+                                Current image. : <img src=@Url.Action("GetPhotoThumbnail", new { imageString = Model.CarouselImageString }) class="img-responsive img-thumbnail">
+                            </p>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <input type="file" name="home_image" class="form-control" accept="image/png,image/jpg,image/jpeg" value="@Model.CarouselImageString" />
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <input type="number" id="input2" class="form-control" name="edit_sequence" value="@Model.Sequence">
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <input type="hidden" value="@Model.CarouselId" name="edit_CarouselId">
+                            <input type="hidden" value="@Model.CarouselImageString" name="edit_CarouselImageString">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @Html.Partial("_NoAccess")
+                }
+            </div>
+        </div>
+    </div>
+
+
+</div>
