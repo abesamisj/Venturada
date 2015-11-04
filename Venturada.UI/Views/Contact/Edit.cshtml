@@ -1,0 +1,223 @@
+﻿@model Venturada.UI.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Company Details
+                <small>edit your company details</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>Company Details</li>
+            </ol>
+        </div>
+    </div>
+</div>
+@if (Session.Count > 0)
+{
+<div class="section">
+    <div class="container">
+        <div class="row">
+            
+                @if (Model.ContactModel.CompanyName != null)
+                {
+                    <form action="@Url.Action("EditCompanyName", "Contact")" method="POST" role="form" class="form-horizontal">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="input2">Company Name</label>
+                                <input type="text" id="input2" class="form-control" name="contact_company" value="@Model.ContactModel.CompanyName">
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <input type="hidden" value="@Model.ContactModel.ContactId" name="contact_id" required>
+                                <button class="btn btn-primary" type="submit">Save Company Name</button>
+                            </div>
+                        </div>
+
+                    </form>
+                }
+
+    </div>
+</div>
+</div>
+                <div class="section-colored">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.AddressModel.AddressId != null)
+                            {
+                            <form action="@Url.Action("EditCompanyAddress", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group col-lg-6">
+                                        <label for="input2">Address Line 1</label>
+                                        <input type="text" id="input2" class="form-control" name="addressLine1" value="@Model.AddressModel.AddressLine1" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="input2">Address Line 2</label>
+                                        <input type="text" id="input2" class="form-control" name="addressLine2" value="@Model.AddressModel.AddressLine2" required>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="input2">Country</label>
+                                        <input type="text" id="input2" class="form-control" name="country" value="@Model.AddressModel.Country">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="input2">Post Code</label>
+                                        <input type="text" id="input2" class="form-control" name="postCode" value="@Model.AddressModel.PostCode">
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <input type="hidden" value="@Model.AddressModel.AddressId" name="addressId">
+                                        <button class="btn btn-primary" type="submit">Save Address</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.ContactNumbersModel1.ContactNumberId != null)
+                            {
+                            <form action="@Url.Action("EditContactNumber", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="input2" class="col-md-2">Contact Number 1</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="input2" class="form-control" name="contactNumber" value="@Model.ContactNumbersModel1.ContactNumber" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="@Model.ContactNumbersModel1.ContactNumberId" name="contactNumberId">
+                                        <button class="btn btn-primary" type="submit">Save contact number 1</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="section-colored">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.ContactNumbersModel2.ContactNumberId != null)
+                            {
+                            <form action="@Url.Action("EditContactNumber", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="input2" class="col-md-2">Contact Number 2</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="input2" class="form-control" name="contactNumber" value="@Model.ContactNumbersModel2.ContactNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="@Model.ContactNumbersModel2.ContactNumberId" name="contactNumberId">
+                                        <button class="btn btn-primary" type="submit">Save contact number 2</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.ContactNumbersModel3.ContactNumberId != null)
+                            {
+                            <form action="@Url.Action("EditContactNumber", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="input2" class="col-md-2">Contact Number 3</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="input2" class="form-control" name="contactNumber" value="@Model.ContactNumbersModel3.ContactNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" value="@Model.ContactNumbersModel3.ContactNumberId" name="contactNumberId">
+                                        <button class="btn btn-primary" type="submit">Save contact number 3</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="section-colored">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.ContactNumbersModel4.ContactNumberId != null)
+                            {
+                            <form action="@Url.Action("EditContactNumber", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="input2" class="col-md-2">Contact Number 4</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="input2" class="form-control" name="contactNumber" value="@Model.ContactNumbersModel4.ContactNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <input type="hidden" value="@Model.ContactNumbersModel4.ContactNumberId" name="contactNumberId">
+                                        <button class="btn btn-primary" type="submit">Save contact number 4</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.ContactNumbersModel5.ContactNumberId != null)
+                            {
+                            <form action="@Url.Action("EditContactNumber", "Contact")" method="POST" role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="input2" class="col-md-2">Contact Number 5</label>
+                                        <div class="col-md-10">
+                                            <input type="text" id="input2" class="form-control" name="contactNumber" value="@Model.ContactNumbersModel5.ContactNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <input type="hidden" value="@Model.ContactNumbersModel5.ContactNumberId" name="contactNumberId">
+                                        <button class="btn btn-primary" type="submit">Save contact number 5</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @Html.Partial("_NoAccess")
+            }
+
+
+
+
+
+
+
+
+

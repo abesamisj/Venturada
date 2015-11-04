@@ -191,6 +191,7 @@
     <Compile Include="Dataservice\AboutUsDataService.cs" />
     <Compile Include="Dataservice\BasicDal.cs" />
     <Compile Include="Dataservice\CarouselsDataService.cs" />
+    <Compile Include="Dataservice\ContactDataService.cs" />
     <Compile Include="Dataservice\FeatureHomeDataService.cs" />
     <Compile Include="Dataservice\GalleryDataService.cs" />
     <Compile Include="Dataservice\HomeViewDataService.cs" />
@@ -208,6 +209,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AboutUsModel.cs" />
+    <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\ContactNumbersModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainPageModel.cs" />
@@ -225,6 +229,7 @@
     <Compile Include="ViewModels\AboutUsViewModel.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CarouselsViewModels.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\Cookies.cs" />
     <Compile Include="ViewModels\EmailFormModel.cs" />
     <Compile Include="ViewModels\FeatureMainModel.cs" />
@@ -545,6 +550,7 @@
     <Content Include="Views\Gallery\Edit.cshtml" />
     <Content Include="Views\Gallery\Add.cshtml" />
     <Content Include="Views\Gallery\EditGallery.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dataservice\Venturada.dbml.layout">

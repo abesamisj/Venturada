@@ -3,16 +3,139 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System;
 using Venturada.UI.ViewModels;
+using Venturada.UI.Dataservice;
 
 namespace Venturada.UI.Controllers
 {
     public class ContactController : Controller
     {
-        public ActionResult Index(string returnUrl)
+        public ActionResult Index(string ReturnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            ContactDataService dataService = new ContactDataService();
+            ContactViewModel viewModel = new ContactViewModel();
+            try
+            {
+                viewModel.ContactModel = dataService.GenerateContactModel();
+                viewModel.AddressModel = dataService.GenerateAddressModel();
+                viewModel.ContactNumbersModel1 = dataService.GenerateContactNumbersModelById(1);
+                viewModel.ContactNumbersModel2 = dataService.GenerateContactNumbersModelById(2);
+                viewModel.ContactNumbersModel3 = dataService.GenerateContactNumbersModelById(3);
+                viewModel.ContactNumbersModel4 = dataService.GenerateContactNumbersModelById(4);
+                viewModel.ContactNumbersModel5 = dataService.GenerateContactNumbersModelById(5);
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dataService = null;
+                viewModel = null;
+            }
+        }
+
+        public ActionResult Edit()
+        {
+            ContactDataService dataService = new ContactDataService();
+            ContactViewModel viewModel = new ContactViewModel();
+            try
+            {
+                viewModel.ContactModel = dataService.GenerateContactModel();
+                viewModel.AddressModel = dataService.GenerateAddressModel();
+                viewModel.ContactNumbersModel1 = dataService.GenerateContactNumbersModelById(1);
+                viewModel.ContactNumbersModel2 = dataService.GenerateContactNumbersModelById(2);
+                viewModel.ContactNumbersModel3 = dataService.GenerateContactNumbersModelById(3);
+                viewModel.ContactNumbersModel4 = dataService.GenerateContactNumbersModelById(4);
+                viewModel.ContactNumbersModel5 = dataService.GenerateContactNumbersModelById(5);
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dataService = null;
+                viewModel = null;
+            }
+            
+        }
+
+        [HttpPost]
+        public ActionResult EditContactNumber()
+        {
+            ContactDataService dataService = new ContactDataService();
+            try
+            {
+                string contactNumber = (string)Request.Form["contactNumber"];
+                string contactNumberId = (string)Request.Form["contactNumberId"];
+                dataService.UpdateContactNumbers(int.Parse(contactNumberId), contactNumber);
+
+                return RedirectToAction("Edit", "Contact");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                dataService = null;
+
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditCompanyName()
+        {
+            ContactDataService dataService = new ContactDataService();
+            try
+            {
+                string companyName = (string)Request.Form["contact_company"];
+                string companyId = (string)Request.Form["contact_id"];
+                dataService.UpdateCompanyName(int.Parse(companyId), companyName);
+
+                return RedirectToAction("Edit", "Contact");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                dataService = null;
+ 
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditCompanyAddress()
+        {
+            ContactDataService dataService = new ContactDataService();
+            try
+            {
+                string addressId = (string)Request.Form["addressId"];
+                string addressLine1 = (string)Request.Form["addressLine1"];
+                string addressLine2 = (string)Request.Form["addressLine2"];
+                string country = (string)Request.Form["country"];
+                string postCode = (string)Request.Form["postCode"];
+
+                return RedirectToAction("Edit", "Contact");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                dataService = null;
+
+            }
         }
 
         [HttpPost]

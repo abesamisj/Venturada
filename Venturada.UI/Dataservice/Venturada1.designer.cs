@@ -60,6 +60,21 @@ namespace Venturada.UI.Dataservice
     partial void InsertGallery(Gallery instance);
     partial void UpdateGallery(Gallery instance);
     partial void DeleteGallery(Gallery instance);
+    partial void InsertContact(Contact instance);
+    partial void UpdateContact(Contact instance);
+    partial void DeleteContact(Contact instance);
+    partial void InsertContactNumber(ContactNumber instance);
+    partial void UpdateContactNumber(ContactNumber instance);
+    partial void DeleteContactNumber(ContactNumber instance);
+    partial void InsertEmailAddress(EmailAddress instance);
+    partial void UpdateEmailAddress(EmailAddress instance);
+    partial void DeleteEmailAddress(EmailAddress instance);
+    partial void InsertShoppingHour(ShoppingHour instance);
+    partial void UpdateShoppingHour(ShoppingHour instance);
+    partial void DeleteShoppingHour(ShoppingHour instance);
+    partial void InsertAddress(Address instance);
+    partial void UpdateAddress(Address instance);
+    partial void DeleteAddress(Address instance);
     #endregion
 		
 		public VenturadaDataContext() : 
@@ -169,6 +184,46 @@ namespace Venturada.UI.Dataservice
 			get
 			{
 				return this.GetTable<Gallery>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Contact> Contacts
+		{
+			get
+			{
+				return this.GetTable<Contact>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ContactNumber> ContactNumbers
+		{
+			get
+			{
+				return this.GetTable<ContactNumber>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EmailAddress> EmailAddresses
+		{
+			get
+			{
+				return this.GetTable<EmailAddress>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ShoppingHour> ShoppingHours
+		{
+			get
+			{
+				return this.GetTable<ShoppingHour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Address> Addresses
+		{
+			get
+			{
+				return this.GetTable<Address>();
 			}
 		}
 	}
@@ -1536,6 +1591,532 @@ namespace Venturada.UI.Dataservice
 					this._ImageString = value;
 					this.SendPropertyChanged("ImageString");
 					this.OnImageStringChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contacts")]
+	public partial class Contact : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ContactId;
+		
+		private string _CompanyName;
+		
+		private string _TagLine;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnContactIdChanging(int value);
+    partial void OnContactIdChanged();
+    partial void OnCompanyNameChanging(string value);
+    partial void OnCompanyNameChanged();
+    partial void OnTagLineChanging(string value);
+    partial void OnTagLineChanged();
+    #endregion
+		
+		public Contact()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ContactId
+		{
+			get
+			{
+				return this._ContactId;
+			}
+			set
+			{
+				if ((this._ContactId != value))
+				{
+					this.OnContactIdChanging(value);
+					this.SendPropertyChanging();
+					this._ContactId = value;
+					this.SendPropertyChanged("ContactId");
+					this.OnContactIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyName", DbType="VarChar(50)")]
+		public string CompanyName
+		{
+			get
+			{
+				return this._CompanyName;
+			}
+			set
+			{
+				if ((this._CompanyName != value))
+				{
+					this.OnCompanyNameChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyName = value;
+					this.SendPropertyChanged("CompanyName");
+					this.OnCompanyNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TagLine", DbType="VarChar(50)")]
+		public string TagLine
+		{
+			get
+			{
+				return this._TagLine;
+			}
+			set
+			{
+				if ((this._TagLine != value))
+				{
+					this.OnTagLineChanging(value);
+					this.SendPropertyChanging();
+					this._TagLine = value;
+					this.SendPropertyChanged("TagLine");
+					this.OnTagLineChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContactNumber")]
+	public partial class ContactNumber : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ContactNumberId;
+		
+		private string _ContactNumber1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnContactNumberIdChanging(int value);
+    partial void OnContactNumberIdChanged();
+    partial void OnContactNumber1Changing(string value);
+    partial void OnContactNumber1Changed();
+    #endregion
+		
+		public ContactNumber()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumberId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ContactNumberId
+		{
+			get
+			{
+				return this._ContactNumberId;
+			}
+			set
+			{
+				if ((this._ContactNumberId != value))
+				{
+					this.OnContactNumberIdChanging(value);
+					this.SendPropertyChanging();
+					this._ContactNumberId = value;
+					this.SendPropertyChanged("ContactNumberId");
+					this.OnContactNumberIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ContactNumber", Storage="_ContactNumber1", DbType="VarChar(50)")]
+		public string ContactNumber1
+		{
+			get
+			{
+				return this._ContactNumber1;
+			}
+			set
+			{
+				if ((this._ContactNumber1 != value))
+				{
+					this.OnContactNumber1Changing(value);
+					this.SendPropertyChanging();
+					this._ContactNumber1 = value;
+					this.SendPropertyChanged("ContactNumber1");
+					this.OnContactNumber1Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EmailAddress")]
+	public partial class EmailAddress : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _EmailAddressId;
+		
+		private string _EmailAddress1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmailAddressIdChanging(int value);
+    partial void OnEmailAddressIdChanged();
+    partial void OnEmailAddress1Changing(string value);
+    partial void OnEmailAddress1Changed();
+    #endregion
+		
+		public EmailAddress()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddressId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int EmailAddressId
+		{
+			get
+			{
+				return this._EmailAddressId;
+			}
+			set
+			{
+				if ((this._EmailAddressId != value))
+				{
+					this.OnEmailAddressIdChanging(value);
+					this.SendPropertyChanging();
+					this._EmailAddressId = value;
+					this.SendPropertyChanged("EmailAddressId");
+					this.OnEmailAddressIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EmailAddress", Storage="_EmailAddress1", DbType="VarChar(50)")]
+		public string EmailAddress1
+		{
+			get
+			{
+				return this._EmailAddress1;
+			}
+			set
+			{
+				if ((this._EmailAddress1 != value))
+				{
+					this.OnEmailAddress1Changing(value);
+					this.SendPropertyChanging();
+					this._EmailAddress1 = value;
+					this.SendPropertyChanged("EmailAddress1");
+					this.OnEmailAddress1Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShoppingHours")]
+	public partial class ShoppingHour : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ShoppingHoursId;
+		
+		private string _ShoppingHours;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnShoppingHoursIdChanging(int value);
+    partial void OnShoppingHoursIdChanged();
+    partial void OnShoppingHoursChanging(string value);
+    partial void OnShoppingHoursChanged();
+    #endregion
+		
+		public ShoppingHour()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShoppingHoursId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ShoppingHoursId
+		{
+			get
+			{
+				return this._ShoppingHoursId;
+			}
+			set
+			{
+				if ((this._ShoppingHoursId != value))
+				{
+					this.OnShoppingHoursIdChanging(value);
+					this.SendPropertyChanging();
+					this._ShoppingHoursId = value;
+					this.SendPropertyChanged("ShoppingHoursId");
+					this.OnShoppingHoursIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShoppingHours", DbType="VarChar(50)")]
+		public string ShoppingHours
+		{
+			get
+			{
+				return this._ShoppingHours;
+			}
+			set
+			{
+				if ((this._ShoppingHours != value))
+				{
+					this.OnShoppingHoursChanging(value);
+					this.SendPropertyChanging();
+					this._ShoppingHours = value;
+					this.SendPropertyChanged("ShoppingHours");
+					this.OnShoppingHoursChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Address")]
+	public partial class Address : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AddressId;
+		
+		private string _AddressLine1;
+		
+		private string _AddressLine2;
+		
+		private string _Country;
+		
+		private string _PostCode;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAddressIdChanging(int value);
+    partial void OnAddressIdChanged();
+    partial void OnAddressLine1Changing(string value);
+    partial void OnAddressLine1Changed();
+    partial void OnAddressLine2Changing(string value);
+    partial void OnAddressLine2Changed();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    partial void OnPostCodeChanging(string value);
+    partial void OnPostCodeChanged();
+    #endregion
+		
+		public Address()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AddressId
+		{
+			get
+			{
+				return this._AddressId;
+			}
+			set
+			{
+				if ((this._AddressId != value))
+				{
+					this.OnAddressIdChanging(value);
+					this.SendPropertyChanging();
+					this._AddressId = value;
+					this.SendPropertyChanged("AddressId");
+					this.OnAddressIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine1", DbType="VarChar(50)")]
+		public string AddressLine1
+		{
+			get
+			{
+				return this._AddressLine1;
+			}
+			set
+			{
+				if ((this._AddressLine1 != value))
+				{
+					this.OnAddressLine1Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine1 = value;
+					this.SendPropertyChanged("AddressLine1");
+					this.OnAddressLine1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine2", DbType="VarChar(50)")]
+		public string AddressLine2
+		{
+			get
+			{
+				return this._AddressLine2;
+			}
+			set
+			{
+				if ((this._AddressLine2 != value))
+				{
+					this.OnAddressLine2Changing(value);
+					this.SendPropertyChanging();
+					this._AddressLine2 = value;
+					this.SendPropertyChanged("AddressLine2");
+					this.OnAddressLine2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(50)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostCode", DbType="VarChar(10)")]
+		public string PostCode
+		{
+			get
+			{
+				return this._PostCode;
+			}
+			set
+			{
+				if ((this._PostCode != value))
+				{
+					this.OnPostCodeChanging(value);
+					this.SendPropertyChanging();
+					this._PostCode = value;
+					this.SendPropertyChanged("PostCode");
+					this.OnPostCodeChanged();
 				}
 			}
 		}

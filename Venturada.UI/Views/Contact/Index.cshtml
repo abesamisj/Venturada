@@ -1,5 +1,5 @@
 ﻿
-@model Venturada.UI.ViewModels.EmailFormModel
+@model Venturada.UI.ViewModels.ContactViewModel
 @{
     ViewBag.Title = "Contact";
 }
@@ -63,18 +63,75 @@
 
 
         <div class="col-sm-4">
-           
+           @if (Model.ContactModel != null)
+           {
+            <h1>@Model.ContactModel.CompanyName</h1>
+           }
+           else
+           {
             <h1>Venturada Hogs and Foods Corp</h1>
-            <p>
-                5th floor Topaz Bldg. <br>
-                Kamias Road, Quezon City<br>
-                Philippines<br />
-            </p>
-            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 899-1407 </p>
-            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 433-6670</p>
-            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0933) 199-7537</p>
-            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0925) 563-8495</p>
-            <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: ((0939) 929-3696</p>
+           }
+            
+            @if (Model.AddressModel != null)
+            {
+                <p>
+                    @Model.AddressModel.AddressLine1 <br>
+                    @Model.AddressModel.AddressLine2<br>
+                    @Model.AddressModel.Country<br />
+                    @Model.AddressModel.PostCode
+                </p>
+            }
+            else
+            {
+                <p>
+                    5th floor Topaz Bldg. <br>
+                    Kamias Road, Quezon City<br>
+                    Philippines<br />
+                </p>
+            }
+            @if (Model.ContactNumbersModel1 != null)
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: @Model.ContactNumbersModel1.ContactNumber </p>
+            }
+            else
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 899-1407 </p>
+            }
+            @if (Model.ContactNumbersModel2 != null)
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: @Model.ContactNumbersModel2.ContactNumber </p>
+            }
+            else
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 433-6670</p>
+            }
+            @if (Model.ContactNumbersModel3 != null)
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: @Model.ContactNumbersModel3.ContactNumber </p>
+            }
+            else
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0933) 199-7537</p>
+            }
+            @if (Model.ContactNumbersModel4 != null)
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: @Model.ContactNumbersModel4.ContactNumber </p>
+            }
+            else
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (0925) 563-8495</p>
+            }
+            @if (Model.ContactNumbersModel5 != null)
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: @Model.ContactNumbersModel5.ContactNumber </p>
+            }
+            else
+            {
+                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: ((0939) 929-3696</p>
+            }
+            
+            
+            
             <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:customerservice@venturadahogs.com">customerservice@venturadahogs.com</a></p>
             <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: Mon-Fri: 6am to 7pm</p>
             <ul class="list-unstyled list-inline list-social-icons">
