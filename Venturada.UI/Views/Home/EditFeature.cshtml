@@ -69,7 +69,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="row">
-                @if (Session.Count > 0)
+                @if (Session["UserName"]  != null)
                 {
                     using (Html.BeginForm("EditFeature", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
@@ -86,7 +86,7 @@
                         <div class="form-group col-lg-12">
                             @Html.LabelFor(model => model.FeatureDescription, new { @class = "required" })
                             <div class="controls">
-                                @Html.TextAreaFor(model => model.FeatureDescription, new { maxlength = 1000, @rows = 10, @class = "form-control" })
+                                @Html.TextAreaFor(model => model.FeatureDescription, new { maxlength = 50, @rows = 5, @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.FeatureDescription, null, new { @class = "help-inline", style = "color: red" })
                             </div>
                         </div>

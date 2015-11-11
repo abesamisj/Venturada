@@ -7,6 +7,7 @@ using System.Web.Helpers;
 using System.Web.Hosting;
 using System.Web.Mvc;
 using Venturada.UI.Dataservice;
+using Venturada.UI.Models;
 using Venturada.UI.ViewModels;
 
 namespace Venturada.UI.Controllers
@@ -16,6 +17,18 @@ namespace Venturada.UI.Controllers
         // GET: Promo
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PromoDataService dataService = new PromoDataService();
             PromoViewModel viewModel = new PromoViewModel();
             try
@@ -38,6 +51,18 @@ namespace Venturada.UI.Controllers
         
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PromoDataService dataService = new PromoDataService();
             PromoViewModel viewModel = new PromoViewModel();
             try
@@ -60,6 +85,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult Edit(PromoViewModel viewModel)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PromoDataService dataService = new PromoDataService();
             string promoId = (string)Request.Form["edit_PromoId"];
             string imageString = (string)Request.Form["edit_ImageString"];
@@ -114,6 +151,18 @@ namespace Venturada.UI.Controllers
 
         public void GetPhotoThumbnail(string imageString)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             // Loading a default photo for realties that don't have a Photo
             new WebImage(HostingEnvironment.MapPath(@"~/" + imageString)).Write();
         }

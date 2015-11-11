@@ -13,12 +13,13 @@ namespace Venturada.UI.ViewModels
         public int MainId { get; set; }
 
         [Required(ErrorMessage = "Please enter your website main title")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Image URL must be between 3 and 200 characters!")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Main title must be between 3 and 200 characters!")]
         [Display(Name = "Main Title")]
         public string MainTitle { get; set; }
 
         [Display(Name = "Main Sub Title")]
-        [Required(ErrorMessage = "Please enter your website main title")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Sub title must be between 3 and 1000 characters!")]
+        [Required(ErrorMessage = "Please enter your website sub title")]
         public string MainSubTitle { get; set; }
 
         [AllowHtml]

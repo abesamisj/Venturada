@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            @if (Session.Count > 0)
+            @if (Session["UserName"]  != null)
             {
                  <div class="container-fluid">
                         <div class="row">

@@ -116,4 +116,18 @@
       <Column Name="PostCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ContactAdditional" Member="ContactAdditionals">
+    <Type Name="ContactAdditional">
+      <Column Name="ContactAdditionalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactTitle" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="ContactDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SocialMedia" Member="SocialMedias">
+    <Type Name="SocialMedia">
+      <Column Name="SocialMediaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocialMediaType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SocialMediaUrl" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

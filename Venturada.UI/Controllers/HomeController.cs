@@ -9,6 +9,7 @@ using System.Web.Hosting;
 using System.Web.Mvc;
 using Venturada.UI.Common;
 using Venturada.UI.Dataservice;
+using Venturada.UI.Models;
 using Venturada.UI.ViewModels;
 
 namespace Venturada.UI.Controllers
@@ -17,6 +18,20 @@ namespace Venturada.UI.Controllers
     {
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
+
+
             CarouselsHelper carHelp = new CarouselsHelper();
             HomePageHelper homeHelp = new HomePageHelper();
             HomeViewModels hvm = new HomeViewModels();
@@ -43,6 +58,19 @@ namespace Venturada.UI.Controllers
 
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
+
             CarouselsHelper carHelp = new CarouselsHelper();
             HomePageHelper homeHelp = new HomePageHelper();
             HomeViewModels hvm = new HomeViewModels();
@@ -72,7 +100,18 @@ namespace Venturada.UI.Controllers
             
             try
             {
-                
+                CommonDataService cds = new CommonDataService();
+
+                CommonModel cm = new CommonModel();
+
+                cm = cds.GenerateCommonModel();
+                Session["FaceBook"] = cm.FaceBook;
+                Session["Twitter"] = cm.Twitter;
+                Session["Youtube"] = cm.Youtube;
+                Session["Instagram"] = cm.Instagram;
+                Session["PhoneNumber"] = cm.PhoneNumber;
+                Session["Email"] = cm.Email;
+                Session["ShoppingHours"] = cm.ShoppingHours;
                 return View();
             }
             catch (Exception ex)
@@ -87,6 +126,18 @@ namespace Venturada.UI.Controllers
             CarouselsHelper carHelp = new CarouselsHelper();
             try
             {
+                CommonDataService cds = new CommonDataService();
+
+                CommonModel cm = new CommonModel();
+
+                cm = cds.GenerateCommonModel();
+                Session["FaceBook"] = cm.FaceBook;
+                Session["Twitter"] = cm.Twitter;
+                Session["Youtube"] = cm.Youtube;
+                Session["Instagram"] = cm.Instagram;
+                Session["PhoneNumber"] = cm.PhoneNumber;
+                Session["Email"] = cm.Email;
+                Session["ShoppingHours"] = cm.ShoppingHours;
                 carHelp.DeleteCarouselByCarouselId(carouselId);
                 return RedirectToAction("Edit", "Home");
             }
@@ -104,6 +155,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditImage(int carouselId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             CarouselsViewModels carVM = new CarouselsViewModels();
             CarouselsHelper carHelp = new CarouselsHelper();
             try
@@ -125,6 +188,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditFeature()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             FeatureHomeDataService fhDS = new FeatureHomeDataService();
             FeatureMainModel fmv = new FeatureMainModel();
             DataSet ds = new DataSet();
@@ -166,7 +241,18 @@ namespace Venturada.UI.Controllers
         public ActionResult EditFeature(FeatureMainModel fmv)
         {
 
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             FeatureHomeDataService fhDS = new FeatureHomeDataService();
             string featureId = (string)Request.Form["edit_FeatureId"];
             string imageString = (string)Request.Form["edit_FeatureImageURLString"];
@@ -228,6 +314,18 @@ namespace Venturada.UI.Controllers
         
         public ActionResult EditMain()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             HomePageHelper homeHelp = new HomePageHelper();
             MainViewModel mvm = new MainViewModel();
             try
@@ -251,6 +349,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditMain(MainViewModel mvm)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             HomeViewDataService hvDS = new HomeViewDataService();
             try
             {
@@ -277,6 +387,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditImage()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             
             CarouselsHelper carHelp = new CarouselsHelper();
             try
@@ -322,6 +444,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult AddImages()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             CarouselsHelper carHelp = new CarouselsHelper();
             try
             {
@@ -361,7 +495,18 @@ namespace Venturada.UI.Controllers
 
         public void GetPhotoThumbnail(string imageString)
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             // Loading a default photo for realties that don't have a Photo
             new WebImage(HostingEnvironment.MapPath(@"~/" + imageString)).Write();
         }

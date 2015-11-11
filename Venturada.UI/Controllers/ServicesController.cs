@@ -13,6 +13,18 @@ namespace Venturada.UI.Controllers
     {
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ServicesViewModel viewModel = new ServicesViewModel();
             ServicesDataService dataservice = new ServicesDataService();
             try
@@ -38,6 +50,18 @@ namespace Venturada.UI.Controllers
 
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ServicesViewModel viewModel = new ServicesViewModel();
             ServicesDataService dataservice = new ServicesDataService();
             try
@@ -86,6 +110,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditService(int id)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ServicesModel model = new ServicesModel();
             ServicesDataService dataservice = new ServicesDataService();
             try
@@ -109,7 +145,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditService(ServicesModel model)
         {
-            
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ServicesDataService dataservice = new ServicesDataService();
             string serviceId = (string)Request.Form["edit_ServicesId"];
             string imageString = (string)Request.Form["edit_ImageString"];

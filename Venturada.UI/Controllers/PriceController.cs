@@ -14,6 +14,18 @@ namespace Venturada.UI.Controllers
         // GET: Price
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             List<ProductCategoryModel> viewModel = new List<ProductCategoryModel>();
 
             PriceDataService dataService = new PriceDataService();
@@ -37,7 +49,18 @@ namespace Venturada.UI.Controllers
 
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ProductCategoryViewModel viewModel = new ProductCategoryViewModel();
 
             PriceDataService dataService = new PriceDataService();
@@ -62,12 +85,36 @@ namespace Venturada.UI.Controllers
         }
         public ActionResult Add()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             return View();
         }
 
         [HttpPost]
         public ActionResult Add(ProductCategoryModel pcm)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -88,6 +135,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditCategory(int productCategoryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             ProductCategoryModel model = new ProductCategoryModel();
             try
@@ -111,6 +170,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditCategory(ProductCategoryModel pcm)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -131,6 +202,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult DeleteCategory(int productCategoryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -150,6 +233,18 @@ namespace Venturada.UI.Controllers
 
         public ActionResult AddHeader(int productCategoryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ViewBag.ProducCategoryId = productCategoryId;
             return View();
         }
@@ -157,6 +252,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult AddHeader(string tableHeader, int productCategoryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             ProductHeaderModel model = new ProductHeaderModel();
             try
@@ -180,6 +287,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult DeleteHeader(int headerId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -200,6 +319,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditHeader(int headerId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             ProductHeaderModel model = new ProductHeaderModel();
             try
@@ -221,6 +352,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditHeader(int productLabelId, string productTableTitleDescription)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             ProductHeaderModel model = new ProductHeaderModel();
             try
@@ -243,6 +386,18 @@ namespace Venturada.UI.Controllers
 
         public ActionResult AddPrice(int productCategoryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ViewBag.ProducCategoryId = productCategoryId;
             return View();
         }
@@ -250,6 +405,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult AddPrice(PriceListModel pcm)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -270,6 +437,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult DeletePrice(int priceListId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             try
             {
@@ -289,6 +468,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditPrice(int priceListId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             PriceListModel model = new PriceListModel();
             try
@@ -310,6 +501,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditPrice(PriceListModel plm)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             PriceDataService dataService = new PriceDataService();
             PriceListModel model = new PriceListModel();
             try

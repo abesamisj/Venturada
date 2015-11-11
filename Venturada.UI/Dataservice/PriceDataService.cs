@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Novacode;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using Venturada.UI.Models;
@@ -401,6 +403,26 @@ namespace Venturada.UI.Dataservice
 
                 throw ex;
             }
+        }
+
+        public void CreateOrderForm()
+        {
+            //// Modify to siut your machine:
+            //string fileName = @"C:\OrderForm.docx";
+
+            //// Create a document in memory:
+            //var doc = DocX.Create(fileName);
+
+            //// Insert a paragrpah:
+            //doc.InsertParagraph("This is my first paragraph");
+
+            //// Save to the output directory:
+            ////doc.Save();
+            //doc.SaveAs(fileName);
+            //// Open in Word:
+            //Process.Start("WINWORD.EXE", fileName);
+
+            
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Venturada.UI.Dataservice;
+using Venturada.UI.Models;
 using Venturada.UI.ViewModels;
 
 namespace Venturada.UI.Controllers
@@ -14,12 +15,36 @@ namespace Venturada.UI.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             return View();
         }
 
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
@@ -31,6 +56,18 @@ namespace Venturada.UI.Controllers
         // GET: /Account/Login
         public ActionResult Login(string returnUrl)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -40,6 +77,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -61,7 +110,9 @@ namespace Venturada.UI.Controllers
                         {
                             HttpCookie FormsCookie = Cookies.CreateAuthenticationCookie(model.UserName, model.LastName);
                             Response.Cookies.Add(FormsCookie);
-                            Session.RemoveAll();
+                            Session.Remove("UserName");
+                            Session.Remove("FirstName");
+                            Session.Remove("LastName");
                             Session["UserName"] = model.UserName;
                             Session["FirstName"] = model.FirstName;
                             Session["LastName"] = model.LastName;
@@ -102,7 +153,21 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult Logoff()
         {
-            Session.RemoveAll();
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
+            Session.Remove("UserName");
+            Session.Remove("FirstName");
+            Session.Remove("LastName");
             return RedirectToAction("Index", "Home");
         }
     }

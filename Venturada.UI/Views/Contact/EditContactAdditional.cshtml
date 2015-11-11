@@ -1,10 +1,9 @@
-﻿@model Venturada.UI.Models.AboutUsModel
+﻿@model Venturada.UI.Models.ContactAdditionalModel
 @{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- This View uses your Model -->
 <head>
     <meta name="viewport" content="width=device-width" />
     <!-- TinyMCE Script Reference -->
@@ -55,28 +54,21 @@
         <div class="row">
             @if (Session["UserName"]  != null)
             {
-                @using (Html.BeginForm("EditAboutUs", "About", FormMethod.Post, new { @class = "form-horizontal" }))
+                using (Html.BeginForm("EditContactAdditional", "Contact", FormMethod.Post, new { @class = "form-horizontal" }))
                 {
 
                     @Html.AntiForgeryToken()
                     <div class="form-group col-sm-12">
-                        @Html.LabelFor(model => model.AboutUsTitle, new { @class = "required" })
+                        @Html.LabelFor(model => model.ContactDescription, new { @class = "required" })
                         <div class="controls">
-                            @Html.TextBoxFor(model => model.AboutUsTitle, new { maxlength = 100, @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.AboutUsTitle, null, new { @class = "help-inline", style = "color: red" })
-                        </div>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        @Html.LabelFor(model => model.AboutUsParagraph, new { @class = "required" })
-                        <div class="controls">
-                            @Html.TextAreaFor(model => model.AboutUsParagraph, new { maxlength = 1000, @rows = 10, @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.AboutUsParagraph, null, new { @class = "help-inline", style = "color: red" })
+                            @Html.TextAreaFor(model => model.ContactDescription, new { maxlength = 500, @rows = 10, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ContactDescription, null, new { @class = "help-inline", style = "color: red" })
                         </div>
                     </div>
 
                     <div class="form-group col-lg-12">
-                        <input type="hidden" value="@Model.AboutUsId" name="edit_AboutUsId">
-                        <button class="btn btn-primary" type="submit">Save Title and Main Paragraph</button>
+                        <input type="hidden" value="@Model.ContactAdditionalId" name="id">
+                        <button class="btn btn-primary" type="submit">Save</button>
                     </div>
                 }
             }
@@ -84,14 +76,7 @@
             {
                 @Html.Partial("_NoAccess")
             }
-
-
-
-
-
-
-
-
         </div>
     </div>
 </div>
+

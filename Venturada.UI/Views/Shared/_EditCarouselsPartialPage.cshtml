@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        @if (Session.Count > 0)
+        @if (Session["UserName"]  != null)
         {
            if (Model.Count > 0)
            {
@@ -22,19 +22,33 @@
             @foreach (var item in Model)
             {
 
-                <div class="col-sm-4">
-                    <p class="thumbnail">
-                        Image URL. : <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.CarouselImageString }) class="img-responsive img-thumbnail" >
-                        @*<br />Sequence: <label id="input1" name="home_sequence">@item.Sequence</label>*@
-                        <input type="hidden" name="home_carouselId" value="@item.CarouselId" />
-                        <br />@Html.ActionLink("Edit Image", "EditImage", "Home", new { carouselId = @item.CarouselId }, null)  @Html.ActionLink(
-    "Delete Image", // text of the link
-    "DeleteImages", // controller name
-    "Home", // action name
-    new { carouselId = @item.CarouselId }, null// route values (if not part of the route will be sent as query string)
-    )
-                    </p>
+
+
+                <div class="col-xs-4 col-sm-4 col-sm-height col-sm-top">
+                    <div class="inside inside-full-height">
+                        <div class="content">
+                            <p>
+                                Image URL. : <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.CarouselImageString }) class="img-responsive img-thumbnail">
+                                <input type="hidden" name="home_carouselId" value="@item.CarouselId" />
+                                <br />
+                                <br />
+                            <p>
+                                <div class="btn-bot ">
+                                    @Html.ActionLink("Edit Image", "EditImage", "Home", new { carouselId = @item.CarouselId }, null) |
+                                    @Html.ActionLink(
+                                "Delete Image", // text of the link
+                                "DeleteImages", // controller name
+                                "Home", // action name
+                                new { carouselId = @item.CarouselId }, null// route values (if not part of the route will be sent as query string)
+                                )
+                                </div>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+
+
             }
             </div>
            }

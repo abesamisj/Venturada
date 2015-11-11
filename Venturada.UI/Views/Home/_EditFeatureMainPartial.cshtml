@@ -1,33 +1,40 @@
 ﻿@model List<Venturada.UI.ViewModels.FeatureMainModel>
 
 
-<div class="row">
-    <div class="col-sm-12">
+
+<div class="section">
+    <div class="container">
         <div class="row">
-            @if (Session.Count > 0)
-            {
-                foreach (var item in Model)
+            <div class="row-height">
+                @if (Session["UserName"]  != null)
                 {
-                    <div class="col-sm-4">
-
-                        Image: <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.FeatureImageURLString}) class="img-responsive img-thumbnail">
-                        <br /><label for="input1">Description:</label>
-                        <br />@(new HtmlString(item.FeatureDescription))
-                        <input type="hidden" name="home_carouselId" value="@item.FeatureId" />
-                        <br />@Html.ActionLink("Edit Feature", "EditFeature", "Home", new { featureId = @item.FeatureId }, null)
-
-                    </div>
+                    foreach (var item in Model)
+                    {
+                        <div class="col-xs-4 col-sm-4 col-sm-height col-sm-top">
+                            <div class="inside inside-full-height">
+                                <div class="content">
+                                    Image: <img src=@Url.Action("GetPhotoThumbnail", new { imageString = item.FeatureImageURLString}) class="img-responsive img-thumbnail">
+                                    <br /><label for="input1">Description:</label>
+                                    <br />@(new HtmlString(item.FeatureDescription))
+                                    <input type="hidden" name="home_carouselId" value="@item.FeatureId" />
+                                    <br />
+                                    <div class="btn-bot ">
+                                        @Html.ActionLink("Edit Feature", "EditFeature", "Home", new { featureId = @item.FeatureId }, null)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 }
-            }
-            else
-            {
-                @Html.Partial("_NoAccess")
-            }
-   
+                else
+                {
+                    @Html.Partial("_NoAccess")
+                }
+
+            </div>
+
         </div>
     </div>
+
 </div>
-
-
-
 

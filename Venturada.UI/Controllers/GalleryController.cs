@@ -17,6 +17,18 @@ namespace Venturada.UI.Controllers
         // GET: Gallery
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryDataService dataService = new GalleryDataService();
             GalleryViewModel viewModel = new GalleryViewModel();
             try
@@ -64,6 +76,18 @@ namespace Venturada.UI.Controllers
         // GET: Gallery
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryDataService dataService = new GalleryDataService();
             GalleryViewModel viewModel = new GalleryViewModel();
             try
@@ -111,6 +135,18 @@ namespace Venturada.UI.Controllers
 
         public ActionResult Add()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryModel model = new GalleryModel();
             return View(model);
         }
@@ -118,7 +154,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult Add(GalleryModel model)
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryDataService dataservice = new GalleryDataService();
             string galleryId = (string)Request.Form["edit_GalleryId"];
             string imageString = (string)Request.Form["edit_ImageString"];
@@ -176,6 +223,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult DeleteGallery(int galleryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryDataService dataService = new GalleryDataService();
             try
             {
@@ -196,6 +255,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult EditGallery(int galleryId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryModel model = new GalleryModel();
             GalleryDataService dataService = new GalleryDataService();
             try
@@ -217,7 +288,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditGallery(GalleryModel model)
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             GalleryDataService dataservice = new GalleryDataService();
             string galleryId = (string)Request.Form["edit_GalleryId"];
             string imageString = (string)Request.Form["edit_ImageString"];

@@ -1,0 +1,37 @@
+﻿@model Venturada.UI.Models.SocialMediaModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-colored">
+    <div class="container">
+        <div class="row">
+            @if (Session["UserName"]  != null)
+            {
+                
+                using (Html.BeginForm("EditSocial", "Contact", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+
+                    @Html.AntiForgeryToken()
+                    <div class="form-group col-sm-12">
+                        @Html.LabelFor(model => model.SocialMediaUrl, new { @class = "required" })
+                        <div class="controls">
+                            @Html.TextBoxFor(model => model.SocialMediaUrl, new { maxlength = 500, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SocialMediaUrl, null, new { @class = "help-inline", style = "color: red" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <input type="hidden" value="@Model.SocialMediaId" name="id">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                }
+            }
+            else
+            {
+                @Html.Partial("_NoAccess")
+            }
+        </div>
+    </div>
+</div>

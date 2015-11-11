@@ -44,8 +44,6 @@
     <![endif]-->
 </head>
 <body>
-    
-    
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         @if (Request.Url.ToString().Contains("uat.azurewebsites.net") || Request.Url.ToString().Contains("local"))
         {
@@ -58,9 +56,13 @@
             <div class="top-bar">
                 
                 <div class="row">
-                    
                     <div class="top-right">
-                        <div class="top-number">Call now <i class="fa fa-phone-square"></i>(02) 899-1407</div>
+                        
+                        @if (Session["PhoneNumber"] != null)
+                        {
+                            <div class="top-number">Call now <i class="fa fa-phone-square"></i>@Session["PhoneNumber"].ToString()</div>
+                        }
+                        
                     </div>
                     
                     
@@ -150,40 +152,92 @@
                     <a href="@Url.Action("Index", "Home")"><img src="~/Contents/Images/Home/logoOriginalsmall.png" class="pickgradient" width="150" height="70" /></a>
                     <div class="tagline-footer">araw araw na ang fiesta</div>
                 </div>
-                <div class="col-sm-7">
-                    <h1>Venturada Hogs and Foods Corp</h1>
+                <div class="col-sm-4">
+                    <div class="font">Venturada Hogs and Foods Corp</div> 
                     <p>
                         5th floor Topaz Bldg. <br>
                         Kamias Road, Quezon City<br>
                         Philippines<br />
-                        <i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: (02) 899-1407 
+                        @if (Session["PhoneNumber"] != null)
+                        {
+                            <i class="fa fa-phone"></i> <abbr title="Phone">P:</abbr> @Session["PhoneNumber"].ToString()
+                        }
+                       
                     </p>
-                    
-                    <h1>Shopping Hours</h1>
-                    <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: Mon-Fri: 6am to 7pm</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="font">Shop Hours</div>
+                    @if (Session["ShoppingHours"] != null)
+                    {
+                        <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: @Session["ShoppingHours"].ToString()</p>
+                    }
                 </div>
 
                 <div class="col-sm-3">
                     <ul class="list-unstyled list-inline list-social-icons ">
                         <li class="tooltip-social facebook-link">
-                            <a title="Facebook" target="_blank" data-placement="top" data-toggle="tooltip" href="https://www.facebook.com/profile.php?id=100010526250517"><i class="fa fa-facebook-square fa-2x"></i></a>
+                            @if (Session["FaceBook"] != null)
+                            {
+                                <a title="Facebook" target="_blank" data-placement="top" data-toggle="tooltip" href="@Session["FaceBook"].ToString()"><i class="fa fa-facebook-square fa-2x"></i></a>
+                            }
+                            else
+                            {
+                                <a title="Facebook" target="_blank" data-placement="top" data-toggle="tooltip" href="https://www.facebook.com/profile.php?id=100010526250517"><i class="fa fa-facebook-square fa-2x"></i></a>
+                            }
+                            
                         </li>
                         <li class="tooltip-social twitter-link">
-                            <a title="Twitter" target="_blank" data-placement="top" data-toggle="tooltip" href="https://twitter.com/venturadahogs1"><i class="fa fa-twitter-square fa-2x"></i></a>
+                            @if (Session["Twitter"] != null)
+                            {
+                                <a title="Twitter" target="_blank" data-placement="top" data-toggle="tooltip" href="@Session["Twitter"].ToString()"><i class="fa fa-twitter-square fa-2x"></i></a>
+                            }
+                            else
+                            {
+                                <a title="Twitter" target="_blank" data-placement="top" data-toggle="tooltip" href="https://twitter.com/venturadahogs1"><i class="fa fa-twitter-square fa-2x"></i></a>
+                            }
+                            
                         </li>
                         <li class="tooltip-social youtube-link">
-                            <a title="youtube" target="_blank" data-placement="top" data-toggle="tooltip" href="#youtubeprofile">
-                                <i class="fa fa-youtube-square fa-2x"></i>
-                            </a>
+                            @if (Session["Youtube"] != null)
+                            {
+                                <a title="youtube" target="_blank" data-placement="top" data-toggle="tooltip" href="@Session["Youtube"].ToString()">
+                                    <i class="fa fa-youtube-square fa-2x"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a title="youtube" target="_blank" data-placement="top" data-toggle="tooltip" href="#youtubeprofile">
+                                    <i class="fa fa-youtube-square fa-2x"></i>
+                                </a>
+                            }
+                            
                         </li>
                         <li class="tooltip-social instagram-link">
-                            <a title="instagram" target="_blank" data-placement="top" data-toggle="tooltip" href="#instagram-profile">
-                                <i class="fa fa-instagram fa-2x"></i>
-                            </a>
+                            @if (Session["Instagram"] != null)
+                            {
+                                <a title="instagram" target="_blank" data-placement="top" data-toggle="tooltip" href="@Session["Instagram"].ToString()">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a title="instagram" target="_blank" data-placement="top" data-toggle="tooltip" href="#instagram-profile">
+                                    <i class="fa fa-instagram fa-2x"></i>
+                                </a>
+                            }
+                            
                         </li>
                         
                         <li>
-                            <p><i class="fa fa-envelope-o"></i><abbr title="Email">E</abbr>:<small><a href="mailto:customerservice@venturadahogs.com">customerservice@venturadahogs.com</a></small></p>
+                            @if (Session["Email"] != null)
+                            {
+                                <p><i class="fa fa-envelope-o"></i><abbr title="Email">E</abbr>:<small><a href="mailto:@Session["Email"].ToString()">@Session["Email"].ToString()</a></small></p>
+                            }
+                            else
+                            {
+                                <p><i class="fa fa-envelope-o"></i><abbr title="Email">E</abbr>:<small><a href="mailto:customerservice@venturadahogs.com">customerservice@venturadahogs.com</a></small></p>
+                            }
+                            
                         </li>
                     </ul>
                         

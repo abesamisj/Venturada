@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX">
+      <HintPath>..\packages\DocX.1.0.0.18\lib\net40\DocX.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -191,6 +194,7 @@
     <Compile Include="Dataservice\AboutUsDataService.cs" />
     <Compile Include="Dataservice\BasicDal.cs" />
     <Compile Include="Dataservice\CarouselsDataService.cs" />
+    <Compile Include="Dataservice\CommonDataService.cs" />
     <Compile Include="Dataservice\ContactDataService.cs" />
     <Compile Include="Dataservice\FeatureHomeDataService.cs" />
     <Compile Include="Dataservice\GalleryDataService.cs" />
@@ -210,8 +214,11 @@
     </Compile>
     <Compile Include="Models\AboutUsModel.cs" />
     <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\CommonModel.cs" />
+    <Compile Include="Models\ContactAdditionalModel.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\ContactNumbersModel.cs" />
+    <Compile Include="Models\EmailAddressModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainPageModel.cs" />
@@ -224,6 +231,8 @@
     <Compile Include="Models\ProductsMainModel.cs" />
     <Compile Include="Models\PromoModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
+    <Compile Include="Models\ShoppingHoursModel.cs" />
+    <Compile Include="Models\SocialMediaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AboutUsViewModel.cs" />
@@ -551,6 +560,8 @@
     <Content Include="Views\Gallery\Add.cshtml" />
     <Content Include="Views\Gallery\EditGallery.cshtml" />
     <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\EditContactAdditional.cshtml" />
+    <Content Include="Views\Contact\EditSocial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dataservice\Venturada.dbml.layout">

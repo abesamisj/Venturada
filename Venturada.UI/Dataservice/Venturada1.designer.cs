@@ -75,6 +75,12 @@ namespace Venturada.UI.Dataservice
     partial void InsertAddress(Address instance);
     partial void UpdateAddress(Address instance);
     partial void DeleteAddress(Address instance);
+    partial void InsertContactAdditional(ContactAdditional instance);
+    partial void UpdateContactAdditional(ContactAdditional instance);
+    partial void DeleteContactAdditional(ContactAdditional instance);
+    partial void InsertSocialMedia(SocialMedia instance);
+    partial void UpdateSocialMedia(SocialMedia instance);
+    partial void DeleteSocialMedia(SocialMedia instance);
     #endregion
 		
 		public VenturadaDataContext() : 
@@ -224,6 +230,22 @@ namespace Venturada.UI.Dataservice
 			get
 			{
 				return this.GetTable<Address>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ContactAdditional> ContactAdditionals
+		{
+			get
+			{
+				return this.GetTable<ContactAdditional>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SocialMedia> SocialMedias
+		{
+			get
+			{
+				return this.GetTable<SocialMedia>();
 			}
 		}
 	}
@@ -2117,6 +2139,226 @@ namespace Venturada.UI.Dataservice
 					this._PostCode = value;
 					this.SendPropertyChanged("PostCode");
 					this.OnPostCodeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContactAdditional")]
+	public partial class ContactAdditional : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ContactAdditionalId;
+		
+		private string _ContactTitle;
+		
+		private string _ContactDescription;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnContactAdditionalIdChanging(int value);
+    partial void OnContactAdditionalIdChanged();
+    partial void OnContactTitleChanging(string value);
+    partial void OnContactTitleChanged();
+    partial void OnContactDescriptionChanging(string value);
+    partial void OnContactDescriptionChanged();
+    #endregion
+		
+		public ContactAdditional()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactAdditionalId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ContactAdditionalId
+		{
+			get
+			{
+				return this._ContactAdditionalId;
+			}
+			set
+			{
+				if ((this._ContactAdditionalId != value))
+				{
+					this.OnContactAdditionalIdChanging(value);
+					this.SendPropertyChanging();
+					this._ContactAdditionalId = value;
+					this.SendPropertyChanged("ContactAdditionalId");
+					this.OnContactAdditionalIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactTitle", DbType="VarChar(150)")]
+		public string ContactTitle
+		{
+			get
+			{
+				return this._ContactTitle;
+			}
+			set
+			{
+				if ((this._ContactTitle != value))
+				{
+					this.OnContactTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ContactTitle = value;
+					this.SendPropertyChanged("ContactTitle");
+					this.OnContactTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactDescription", DbType="VarChar(MAX)")]
+		public string ContactDescription
+		{
+			get
+			{
+				return this._ContactDescription;
+			}
+			set
+			{
+				if ((this._ContactDescription != value))
+				{
+					this.OnContactDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._ContactDescription = value;
+					this.SendPropertyChanged("ContactDescription");
+					this.OnContactDescriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SocialMedia")]
+	public partial class SocialMedia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _SocialMediaId;
+		
+		private string _SocialMediaType;
+		
+		private string _SocialMediaUrl;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSocialMediaIdChanging(int value);
+    partial void OnSocialMediaIdChanged();
+    partial void OnSocialMediaTypeChanging(string value);
+    partial void OnSocialMediaTypeChanged();
+    partial void OnSocialMediaUrlChanging(string value);
+    partial void OnSocialMediaUrlChanged();
+    #endregion
+		
+		public SocialMedia()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SocialMediaId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SocialMediaId
+		{
+			get
+			{
+				return this._SocialMediaId;
+			}
+			set
+			{
+				if ((this._SocialMediaId != value))
+				{
+					this.OnSocialMediaIdChanging(value);
+					this.SendPropertyChanging();
+					this._SocialMediaId = value;
+					this.SendPropertyChanged("SocialMediaId");
+					this.OnSocialMediaIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SocialMediaType", DbType="VarChar(50)")]
+		public string SocialMediaType
+		{
+			get
+			{
+				return this._SocialMediaType;
+			}
+			set
+			{
+				if ((this._SocialMediaType != value))
+				{
+					this.OnSocialMediaTypeChanging(value);
+					this.SendPropertyChanging();
+					this._SocialMediaType = value;
+					this.SendPropertyChanged("SocialMediaType");
+					this.OnSocialMediaTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SocialMediaUrl", DbType="VarChar(MAX)")]
+		public string SocialMediaUrl
+		{
+			get
+			{
+				return this._SocialMediaUrl;
+			}
+			set
+			{
+				if ((this._SocialMediaUrl != value))
+				{
+					this.OnSocialMediaUrlChanging(value);
+					this.SendPropertyChanging();
+					this._SocialMediaUrl = value;
+					this.SendPropertyChanged("SocialMediaUrl");
+					this.OnSocialMediaUrlChanged();
 				}
 			}
 		}

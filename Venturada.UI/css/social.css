@@ -6,7 +6,11 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
-
+.font {
+font-size:x-large;
+font-family:'Muli', sans-serif;
+color:#317eac;
+}
 	
 .circle{
 	border-radius: 50%;

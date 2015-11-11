@@ -96,6 +96,93 @@ namespace Venturada.UI.Dataservice
 
         }
 
+        public EmailAddressModel GenerateEmailAddressModelById(int emailAddressId)
+        {
+            try
+            {
+
+                EmailAddressModel model = new EmailAddressModel();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+
+                    var table = from p in vdc.EmailAddresses.ToList()
+                                where p.EmailAddressId == emailAddressId
+                                select p;
+
+                    model = new EmailAddressModel();
+                    model.EmailAddressId = table.FirstOrDefault().EmailAddressId;
+                    model.EmailAddress = table.FirstOrDefault().EmailAddress1;
+
+                    return model;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public ShoppingHoursModel GenerateShoppingHoursModelById(int shoopingHoursId)
+        {
+            try
+            {
+
+                ShoppingHoursModel model = new ShoppingHoursModel();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+
+                    var table = from p in vdc.ShoppingHours.ToList()
+                                where p.ShoppingHoursId == shoopingHoursId
+                                select p;
+
+                    model = new ShoppingHoursModel();
+                    model.ShoppingHoursId = table.FirstOrDefault().ShoppingHoursId;
+                    model.ShoppingHours = table.FirstOrDefault().ShoppingHours;
+
+                    return model;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public ContactAdditionalModel GenerateContactAdditionalModelById(int id)
+        {
+            try
+            {
+
+                ContactAdditionalModel model = new ContactAdditionalModel();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+
+                    var table = from p in vdc.ContactAdditionals.ToList()
+                                where p.ContactAdditionalId == id
+                                select p;
+
+                    model = new ContactAdditionalModel();
+                    model.ContactAdditionalId = table.FirstOrDefault().ContactAdditionalId;
+                    model.ContactTitle = table.FirstOrDefault().ContactTitle;
+                    model.ContactDescription = table.FirstOrDefault().ContactDescription;
+                    return model;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
         public void UpdateCompanyName(int contactId, string companyName)
         {
             try
@@ -126,6 +213,120 @@ namespace Venturada.UI.Dataservice
                 {
                     table = vdc.ContactNumbers.Single(a => a.ContactNumberId == contactNumberId);
                     table.ContactNumber1 = contactNumber;
+
+                    vdc.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void UpdateEmailAddress(int emailAddressId, string emailAddress)
+        {
+            try
+            {
+                EmailAddress table = new EmailAddress();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+                    table = vdc.EmailAddresses.Single(a => a.EmailAddressId == emailAddressId);
+                    table.EmailAddress1 = emailAddress;
+
+                    vdc.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void UpdateShoppingHours(int id, string description)
+        {
+            try
+            {
+                ShoppingHour table = new ShoppingHour();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+                    table = vdc.ShoppingHours.Single(a => a.ShoppingHoursId == id);
+                    table.ShoppingHours = description;
+
+                    vdc.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void UpdateContactAdditional(int id, string title, string description)
+        {
+            try
+            {
+                ContactAdditional table = new ContactAdditional();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+                    table = vdc.ContactAdditionals.Single(a => a.ContactAdditionalId == id);
+                    table.ContactDescription = description;
+                    table.ContactTitle = title;
+
+                    vdc.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public SocialMediaModel GenerateSocialMediaModelById(int id)
+        {
+            try
+            {
+
+                SocialMediaModel model = new SocialMediaModel();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+
+                    var table = from p in vdc.SocialMedias.ToList()
+                                where p.SocialMediaId == id
+                                select p;
+
+                    model = new SocialMediaModel();
+                    model.SocialMediaId = table.FirstOrDefault().SocialMediaId;
+                    model.SocialMediaType = table.FirstOrDefault().SocialMediaType;
+                    model.SocialMediaUrl = table.FirstOrDefault().SocialMediaUrl;
+                    return model;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void UpdateSocialMedia(int id, string description)
+        {
+            try
+            {
+                SocialMedia table = new SocialMedia();
+                using (VenturadaDataContext vdc = new VenturadaDataContext())
+                {
+                    table = vdc.SocialMedias.Single(a => a.SocialMediaId == id);
+                    table.SocialMediaUrl = description;
 
                     vdc.SubmitChanges();
                 }

@@ -14,6 +14,18 @@ namespace Venturada.UI.Controllers
     {
         public ActionResult Index()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsViewModel auVM = new AboutUsViewModel();
 
             AboutUsDataService auDS = new AboutUsDataService();
@@ -40,11 +52,35 @@ namespace Venturada.UI.Controllers
         }
         public ActionResult Add()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             return View();
         }
         [HttpPost]
         public ActionResult AddImages()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsDataService auDS = new AboutUsDataService();
             PartnersModel pm = new PartnersModel();
             try
@@ -82,6 +118,18 @@ namespace Venturada.UI.Controllers
         [HttpGet]
         public ActionResult DeleteImages(int partnerId)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsDataService auDS = new AboutUsDataService();
             try
             {
@@ -100,7 +148,18 @@ namespace Venturada.UI.Controllers
         }
         public ActionResult Edit()
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsViewModel auVM = new AboutUsViewModel();
 
             AboutUsDataService auDS = new AboutUsDataService();
@@ -128,6 +187,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditAboutUsImage()
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsDataService auDS = new AboutUsDataService();
 
             try
@@ -165,6 +236,18 @@ namespace Venturada.UI.Controllers
         [HttpPost]
         public ActionResult EditAboutUs(AboutUsModel aum)
         {
+            CommonDataService cds = new CommonDataService();
+
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             AboutUsDataService auDS = new AboutUsDataService();
             string aboutUsId = (string)Request.Form["edit_AboutUsId"];
             string aboutUsTitle = (string)Request.Form["edit_AboutUsTitle"];
@@ -196,7 +279,18 @@ namespace Venturada.UI.Controllers
         }
         public void GetPhotoThumbnail(string imageString)
         {
+            CommonDataService cds = new CommonDataService();
 
+            CommonModel cm = new CommonModel();
+
+            cm = cds.GenerateCommonModel();
+            Session["FaceBook"] = cm.FaceBook;
+            Session["Twitter"] = cm.Twitter;
+            Session["Youtube"] = cm.Youtube;
+            Session["Instagram"] = cm.Instagram;
+            Session["PhoneNumber"] = cm.PhoneNumber;
+            Session["Email"] = cm.Email;
+            Session["ShoppingHours"] = cm.ShoppingHours;
             // Loading a default photo for realties that don't have a Photo
             new WebImage(HostingEnvironment.MapPath(@"~/" + imageString)).Write();
         }

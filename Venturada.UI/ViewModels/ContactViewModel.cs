@@ -16,6 +16,15 @@ namespace Venturada.UI.ViewModels
         public ContactNumbersModel ContactNumbersModel4 { get; set; }
         public ContactNumbersModel ContactNumbersModel5 { get; set; }
 
+        public EmailAddressModel EmailAddressModel { get; set; }
+
+        public ShoppingHoursModel ShoppingHoursModel { get; set; }
+        public ContactAdditionalModel ContactAdditionalModel { get; set; }
+        public SocialMediaModel SocialMediaModelFacebook { get; set; }
+        public SocialMediaModel SocialMediaModelTwitter { get; set; }
+        public SocialMediaModel SocialMediaModelYoutube { get; set; }
+        public SocialMediaModel SocialMediaModelInstagram { get; set; }
+
         public EmailFormModel EmailFormModel { get; set; }
     }
 }

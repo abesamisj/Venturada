@@ -18,7 +18,7 @@ namespace Venturada.UI.ViewModels
 
         [AllowHtml]
         [Required(ErrorMessage = "Please enter your description here")]
-        [StringLength(1000, MinimumLength = 3, ErrorMessage = "Description must be between 3 and 1000 characters!")]
+        [StringLength(150, MinimumLength = 3, ErrorMessage = "Description must be between 3 and 150 characters!")]
         [Display(Name = "Feature Description")]
         public string FeatureDescription { get; set; }
 
